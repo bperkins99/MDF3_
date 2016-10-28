@@ -23,6 +23,9 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
+                <action android:name="com.demo.bradperkins.broadcastingcrud.ACTION_SAVE_DATA"/>
+                <action android:name="com.demo.bradperkins.broadcastingcrud.ACTION_DELETE_DATA"/>
+                <action android:name="com.demo.bradperkins.broadcastingcrud.ACTION_UPDATE_LIST"/>
                 <action android:name="com.demo.bradperkins.broadcastingcrud.ACTION_VIEW_DATA"/>
             </intent-filter>
         </receiver>

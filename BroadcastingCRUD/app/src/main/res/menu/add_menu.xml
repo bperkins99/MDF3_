@@ -3,9 +3,9 @@
       xmlns:compat="http://schemas.android.com/apk/res-auto" >
 
     <item
-        android:id="@+id/delete_person"
+        android:id="@+id/add_person"
         android:orderInCategory="100"
-        android:title="Delete"
+        android:title="Add"
         compat:showAsAction="always">
     </item>
 

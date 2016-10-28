@@ -27,16 +27,16 @@ public class DetailFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
 
-        getActivity().setTitle(MyReceiver.PERSON_FIRST_NAME + " " + MyReceiver.PERSON_LAST_NAME);
+        getActivity().setTitle(MyReceiver.EXTRA_FIRST_NAME + " " + MyReceiver.EXTRA_LAST_NAME);
 
             TextView firstName = (TextView) view.findViewById(R.id.firstNameTV);
-            firstName.setText(MyReceiver.PERSON_FIRST_NAME);
+            firstName.setText(MyReceiver.EXTRA_FIRST_NAME);
 
             TextView lastName = (TextView) view.findViewById(R.id.lastNameTV);
-            lastName.setText(MyReceiver.PERSON_LAST_NAME);
+            lastName.setText(MyReceiver.EXTRA_LAST_NAME);
 
             TextView age = (TextView) view.findViewById(R.id.ageTV);
-            String ageString = String.valueOf(MyReceiver.PERSON_AGE);
+            String ageString = String.valueOf(MyReceiver.EXTRA_AGE);
             age.setText(ageString);
 
         return view;

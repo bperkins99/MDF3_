@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements PersonListFragmen
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        if (id == R.id.add_person) {
+        if (id == R.id.add_activity) {
 
             Intent intent = new Intent(this, AddActivity.class);
             startActivity(intent);
@@ -43,11 +43,6 @@ public class MainActivity extends AppCompatActivity implements PersonListFragmen
         }
         return super.onOptionsItemSelected(item);
     }
-
-//    @Override
-//    public void onItemSelected(Person person) {
-//
-//    }
 
 
     ///////////SEnd this bundle to BroadcastReceiver

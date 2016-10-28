@@ -1,7 +1,6 @@
 package com.demo.bradperkins.broadcastingcrud.utilities;
 
 import android.content.Context;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,11 +13,11 @@ import java.util.ArrayList;
  */
 public class FileHelper {
 
-    private static final String FILENAME = "personinfo.dat";
+    private static final String FILENAME = "persondata.dat";
 
-    //static Person person = new Person();
+    static Person person = new Person();
 
-    public static void writeData(Person personList, Context context) {
+    public static void writeData(ArrayList<Person> personList, Context context) {
         try {
             FileOutputStream fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fos);

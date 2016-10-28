@@ -18,11 +18,19 @@ import com.demo.bradperkins.broadcastingcrud.utilities.Person;
 
 import java.util.ArrayList;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
 public class AddFragment extends Fragment {
+
+
+    public EditText firstNameET;//
+    public EditText lastNameET;//
+    public EditText personAgeET;//
+
+    ArrayList<Person> personList;//
+
+    FileHelper fileHelper = new FileHelper();//
 
     public AddFragment() {
         // Required empty public constructor
@@ -38,6 +46,10 @@ public class AddFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
     }
 
     @Override
@@ -46,8 +58,11 @@ public class AddFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add, container, false);
 
+        firstNameET = (EditText)view.findViewById(R.id.firstNameET);//
+        lastNameET = (EditText)view.findViewById(R.id.lastNameET);//
+        personAgeET = (EditText)view.findViewById(R.id.ageET);//
+
+        personList = fileHelper.readData(getActivity());//
         return view;
-
     }
-
 }

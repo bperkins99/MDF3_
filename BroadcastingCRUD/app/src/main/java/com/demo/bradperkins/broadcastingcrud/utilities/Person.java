@@ -3,11 +3,12 @@ package com.demo.bradperkins.broadcastingcrud.utilities;
 import android.os.Bundle;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by bradperkins on 10/27/16.
  */
-public class Person implements Serializable {
+public class Person extends ArrayList<String> implements Serializable {
 
     private static final long serialVersionUID = -7791154359356162736L;
 
@@ -18,6 +19,10 @@ public class Person implements Serializable {
     private String firstName;
     private String lastName;
     private String age;
+
+    public Person() {
+
+    }
 
 
     public String getFirstName() {

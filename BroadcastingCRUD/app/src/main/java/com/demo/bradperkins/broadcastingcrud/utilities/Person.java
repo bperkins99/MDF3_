@@ -9,6 +9,8 @@ import java.io.Serializable;
  */
 public class Person implements Serializable {
 
+    private static final long serialVersionUID = -7791154359356162736L;
+
     public static final String FIRSTNAME = "FIRSTNAME";
     public static final String LASTNAME = "LASTNAME";
     public static final String AGE = "AGE";

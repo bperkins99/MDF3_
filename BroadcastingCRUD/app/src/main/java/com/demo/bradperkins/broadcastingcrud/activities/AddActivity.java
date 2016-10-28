@@ -30,9 +30,10 @@ public class AddActivity extends AppCompatActivity {
     ArrayList<Person> personList;///
     FileHelper fileHelper = new FileHelper();//////
 
-    String firstName = "";
-    String lastName = "";
-    String personAge = "";
+    public static String EXTRA_FIRST_NAME = "com.demo.bradperkins.broadcastingcrud.PERSON_FIRST_NAME";
+    public static String EXTRA_LAST_NAME = "com.demo.bradperkins.broadcastingcrud.PERSON_LAST_NAME";
+    public static String EXTRA_AGE = "com.demo.bradperkins.broadcastingcrud.PERSON_AGE";
+
 
 
     @Override
@@ -67,33 +68,39 @@ public class AddActivity extends AppCompatActivity {
 
     public void personData(){
         addFragment = (AddFragment) getSupportFragmentManager().findFragmentById(R.id.add_placeHolder);
-        firstName = addFragment.firstNameET.getText().toString().trim();
-        lastName = addFragment.lastNameET.getText().toString().trim();
-        personAge = addFragment.personAgeET.getText().toString().trim();
+        EXTRA_FIRST_NAME = addFragment.firstNameET.getText().toString().trim();
+        EXTRA_LAST_NAME = addFragment.lastNameET.getText().toString().trim();
+        EXTRA_AGE = addFragment.personAgeET.getText().toString().trim();
 
-        if (firstName.isEmpty() || lastName.isEmpty() || personAge.isEmpty()) {
+        if (EXTRA_FIRST_NAME.isEmpty() || EXTRA_LAST_NAME.isEmpty() || EXTRA_AGE.isEmpty()) {
             Toast.makeText(this, "Enter Valid Data", Toast.LENGTH_SHORT).show();
         } else {
-            //TODO send data to MyReceiver
 
-//            sendToReceiver(firstName, lastName, personAge);
-            person = new Person(firstName, lastName, personAge);
-            personList.add(person);
-            fileHelper.writeData(personList, this);
-            Toast.makeText(this, "New Person Added: " + firstName + lastName, Toast.LENGTH_SHORT).show();
+            //SENDS DATA To RECEIVER
+            sendToReceiver(EXTRA_FIRST_NAME, EXTRA_LAST_NAME, EXTRA_AGE);
+
+            saveTheData(EXTRA_FIRST_NAME, EXTRA_LAST_NAME, EXTRA_AGE);
         }
-
         finish();
-
     }
 
     public void sendToReceiver(String first, String last, String age){
         Intent intent = new Intent(ACTION_SAVE_DATA);
-        intent.putExtra("first", first);
-        intent.putExtra("last", last);
-        intent.putExtra("age", age);
+        intent.putExtra("EXTRA_FIRST_NAME", first);
+        intent.putExtra("EXTRA_LAST_NAME", last);
+        intent.putExtra("EXTRA_AGE", age);
         intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
         this.sendBroadcast(intent);
+    }
+
+
+
+    public void saveTheData(String first, String last, String age){
+
+        person = new Person(first, last, age);
+        personList.add(person);
+        FileHelper.writeData(personList, this);
+
     }
 
 }

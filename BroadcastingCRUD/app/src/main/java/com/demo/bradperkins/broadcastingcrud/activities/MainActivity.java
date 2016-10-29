@@ -54,11 +54,11 @@ public class MainActivity extends AppCompatActivity implements PersonListFragmen
 
         String first = person.getFirstName();
         String last = person.getLastName();
-        String age = person.getAge();
+        int age = person.getAge();
 
         intent.putExtra("EXTRA_FIRST_NAME", first);
         intent.putExtra("EXTRA_LAST_NAME", last);
-        intent.putExtra("EXTRA_AGE", age);
+        intent.putExtra("INT_AGE", age);
 
         intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
         this.sendBroadcast(intent);

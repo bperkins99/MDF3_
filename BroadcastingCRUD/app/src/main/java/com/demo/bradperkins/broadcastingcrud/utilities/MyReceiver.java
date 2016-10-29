@@ -24,6 +24,8 @@ public class MyReceiver extends BroadcastReceiver {
     public static String EXTRA_LAST_NAME = "com.demo.bradperkins.broadcastingcrud.PERSON_LAST_NAME";
     public static String EXTRA_AGE = "com.demo.bradperkins.broadcastingcrud.PERSON_AGE";
 
+    public static int INT_AGE = 0;
+
     ArrayList<Person> personList;
     Person person;
     AddFragment addFragment;
@@ -35,13 +37,13 @@ public class MyReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         // TODO: This method is called when the BroadcastReceiver is receivin
         FileHelper fileHelper = new FileHelper();
-        AddActivity addActivity = new AddActivity();
 
         //VIEW DATA
         if (intent.getAction().equals(ACTION_VIEW_DATA)) {
             EXTRA_FIRST_NAME = intent.getStringExtra("EXTRA_FIRST_NAME");
             EXTRA_LAST_NAME = intent.getStringExtra("EXTRA_LAST_NAME");
-            EXTRA_AGE = intent.getStringExtra("EXTRA_AGE");
+            INT_AGE = intent.getIntExtra("INT_AGE", 1);
+            EXTRA_AGE = String.valueOf(INT_AGE);
 
             Toast.makeText(context, EXTRA_FIRST_NAME + EXTRA_LAST_NAME + EXTRA_AGE + "!!!!!", Toast.LENGTH_SHORT).show();
         }
@@ -66,16 +68,6 @@ public class MyReceiver extends BroadcastReceiver {
         if (intent.getAction().equals(ACTION_DELETE_DATA)) {
 
         }
-
-//        String first = intent.getStringExtra("first");
-//        String last = intent.getStringExtra("last");
-//        String age = intent.getStringExtra("age");
-//
-//        EXTRA_FIRST_NAME = first;
-//        EXTRA_LAST_NAME = last;
-//        EXTRA_AGE = age;
-//        Toast.makeText(context, EXTRA_FIRST_NAME + EXTRA_LAST_NAME + EXTRA_AGE + "!!!!!", Toast.LENGTH_SHORT).show();
-
 
     }
 }

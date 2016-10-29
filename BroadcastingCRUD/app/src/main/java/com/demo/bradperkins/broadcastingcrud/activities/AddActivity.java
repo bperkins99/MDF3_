@@ -67,9 +67,15 @@ public class AddActivity extends AppCompatActivity {
 
     public void personData(){
         addFragment = (AddFragment) getSupportFragmentManager().findFragmentById(R.id.add_placeHolder);
+
         EXTRA_FIRST_NAME = addFragment.firstNameET.getText().toString().trim();
         EXTRA_LAST_NAME = addFragment.lastNameET.getText().toString().trim();
+
+
         EXTRA_AGE = addFragment.personAgeET.getText().toString().trim();
+
+        int ageToInt = Integer.parseInt(EXTRA_AGE);
+
 
         if (EXTRA_FIRST_NAME.isEmpty() || EXTRA_LAST_NAME.isEmpty() || EXTRA_AGE.isEmpty()) {
             Toast.makeText(this, "Enter Valid Data", Toast.LENGTH_SHORT).show();
@@ -78,7 +84,7 @@ public class AddActivity extends AppCompatActivity {
 
             sendToReceiver(EXTRA_FIRST_NAME, EXTRA_LAST_NAME, EXTRA_AGE);
 
-            person = new Person(EXTRA_FIRST_NAME, EXTRA_LAST_NAME, EXTRA_AGE);
+            person = new Person(EXTRA_FIRST_NAME, EXTRA_LAST_NAME, ageToInt);
             personList.add(person);
             fileHelper.writeData(personList, this);
             Toast.makeText(this, "New Person Added: " + EXTRA_FIRST_NAME + EXTRA_LAST_NAME, Toast.LENGTH_SHORT).show();

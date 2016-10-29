@@ -16,11 +16,8 @@ public class PersonData {
     }
 
     public PersonData() {
-        personList.add(new Person("Brad", "Perkins", "1"));
-        personList.add(new Person("Jen", "Perkins", "2"));
-        personList.add(new Person("Carson", "Perkins", "3"));
-        personList.add(new Person("Kenzi", "Perkins", "4"));
-        personList.add(new Person("Parker", "Perkins", "5"));
+        //personList.add(new Person("Brad", "Perkins", "1"));
+
     }
 
 

@@ -18,7 +18,7 @@ public class Person extends ArrayList<String> implements Serializable {
 
     private String firstName;
     private String lastName;
-    private String age;
+    private int age;
 
     public Person() {
 
@@ -41,28 +41,28 @@ public class Person extends ArrayList<String> implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
 
-    public Person(String firstName, String lastName, String age) {
+    public Person(String firstName, String lastName, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
     }
 
-    public Person(Bundle bundle){
-        if (bundle != null) {
-            this.firstName = bundle.getString(FIRSTNAME);
-            this.lastName = bundle.getString(LASTNAME);
-            this.age = bundle.getString(AGE);
-        }
-    }
+//    public Person(Bundle bundle){
+//        if (bundle != null) {
+//            this.firstName = bundle.getString(FIRSTNAME);
+//            this.lastName = bundle.getString(LASTNAME);
+//            this.age = bundle.getString(AGE);
+//        }
+//    }
 
     public Bundle toBundle() {
         Bundle bundle = new Bundle();

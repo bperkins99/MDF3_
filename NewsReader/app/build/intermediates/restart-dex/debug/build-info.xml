@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86_64,x86"
+    api-level="24"
+    density="420dpi"
+    format="7"
+    timestamp="58067906143331"
+    token="-1186700179438576729"
+    verifier="CLASS_ADDED" >
+
+    <task
+        name="javac"
+        duration="150" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="9" />
+    <task
+        name="verifier"
+        duration="1" />
+
+    <artifact
+        location="/Users/bradperkins/Desktop/MDF3_/NewsReader/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex"
+        type="DEX" />
+
+    <build timestamp="31043184439222" >
+        <artifact
+            location="/Users/bradperkins/Desktop/MDF3_/NewsReader/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="58067906143331"
+        verifier="CLASS_ADDED" >
+        <artifact
+            location="/Users/bradperkins/Desktop/MDF3_/NewsReader/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex"
+            type="DEX" />
+    </build>
+
+</instant-run>

@@ -20,13 +20,12 @@ import java.util.List;
 
 public class PersonListFragment extends ListFragment {
 
-//    List<Person> personList = new PersonData().getPersonList();
     List<Person> personList;
     private OnPersonInterface activity;
 
     public interface OnPersonInterface {
-//        void onItemSelected(Person person);
-            void onItemSelected(Person index);
+        void onItemSelected(Person index);
+
     }
 
     public PersonListFragment() {
@@ -36,31 +35,14 @@ public class PersonListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-//        personList = new ArrayList<>();
-//        personList = fileHelper.readData(getActivity());
-
-        personList = FileHelper.readData(getActivity());
-
-        PersonArrayAdapter adapter = new PersonArrayAdapter(getActivity(),
-                R.layout.fragment_person_list,
-                //adds the list data
-                personList);
-
-        setListAdapter(adapter);
+        updateData();
     }
 
     @Override
     public void onResume() {
         super.onResume();
         personList = FileHelper.readData(getActivity());
-
-        PersonArrayAdapter adapter = new PersonArrayAdapter(getActivity(),
-                R.layout.fragment_person_list,
-                //adds the list data
-                personList);
-
-        setListAdapter(adapter);
+        updateData();
 
     }
 
@@ -74,9 +56,6 @@ public class PersonListFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-//        Person person = personList.get(position);
-//        activity.onItemSelected(person);
-
         Person index = personList.get(position);
         activity.onItemSelected(index);
 
@@ -88,5 +67,15 @@ public class PersonListFragment extends ListFragment {
         this.activity = (OnPersonInterface) context;
     }
 
+
+    public void updateData(){
+        personList = FileHelper.readData(getActivity());
+        PersonArrayAdapter adapter = new PersonArrayAdapter(getActivity(),
+                R.layout.fragment_person_list,
+                //adds the list data
+                personList);
+
+        setListAdapter(adapter);
+    }
 
 }

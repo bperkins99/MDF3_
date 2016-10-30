@@ -13,7 +13,6 @@ import com.demo.bradperkins.broadcastingcrud.R;
 
 public class MainActivity extends AppCompatActivity implements PersonListFragment.OnPersonInterface {
 
-    public static final String PERSON_BUNDLE = "PERSON_BUNDLE";
     private static final int REQUEST_CODE = 1001;
     private static final String ACTION_VIEW_DATA = "com.demo.bradperkins.broadcastingcrud.ACTION_VIEW_DATA";
 
@@ -67,4 +66,5 @@ public class MainActivity extends AppCompatActivity implements PersonListFragmen
         startActivityForResult(detailIntent, REQUEST_CODE);
 
     }
+
 }
